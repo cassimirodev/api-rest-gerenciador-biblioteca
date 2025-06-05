@@ -1,28 +1,25 @@
 package com.backend.gerenciadorDeBiblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.Size;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @EqualsAndHashCode.Include
-    private UUID id_livro;
+    private Long idLivro;
 
     @NotNull
     @Size(max = 100)
@@ -37,24 +34,14 @@ public class Livro {
     private String genero;
 
     @NotNull
-    private LocalDate data_publicacao;
+    private LocalDate dataPublicacao;
 
     @NotNull
     private int quantidade;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "autor_id")
+    @JoinColumn(name = "idAutor")
+    @JsonBackReference
     private Autor autor;
-
-    public Livro(String titulo, String editora, String genero, LocalDate data_publicacao, int quantidade) {
-        this.titulo = titulo;
-        this.editora = editora;
-        this.genero = genero;
-        this.data_publicacao = data_publicacao;
-        this.quantidade = quantidade;
-    }
-
-
-
 
 }

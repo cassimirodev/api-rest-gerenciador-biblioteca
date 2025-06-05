@@ -15,32 +15,24 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Emprestimo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @EqualsAndHashCode.Include
-    private UUID id_emprestimo;
+    private Long idEmprestimo;
 
     @NotNull
-    private LocalDate data_emprestimo;
+    private LocalDate dataEmprestimo;
 
     @NotNull
-    private LocalDate data_devolucao;
+    private LocalDate dataDevolucao;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_livro")
+    @JoinColumn(name = "idLivro")
     private Livro livro;
 
-    public Emprestimo(LocalDate data_emprestimo, LocalDate data_devolucao, Usuario usuario, Livro livro) {
-        this.data_emprestimo = data_emprestimo;
-        this.data_devolucao = data_devolucao;
-        this.usuario = usuario;
-        this.livro = livro;
-    }
 }

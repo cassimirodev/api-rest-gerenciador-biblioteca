@@ -17,13 +17,12 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @EqualsAndHashCode.Include
-    private UUID id_usuario;
+    private UUID idUsuario;
 
     @NotNull
     @Column(unique = true)
@@ -47,12 +46,4 @@ public class Usuario {
     @Size(max = 255)
     private String endereco;
 
-
-    public Usuario(String CPF, String nome, String email, String telefone, String endereco) {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-    }
 }
