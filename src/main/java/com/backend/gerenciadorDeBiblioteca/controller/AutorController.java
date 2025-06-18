@@ -60,10 +60,10 @@ public class AutorController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/buscar")
-    public ResponseEntity<List<Autor>> buscarPorNome(@RequestParam String nome) {
-        return ResponseEntity.ok(autorService.buscarPorNome(nome));
-    }
+        @GetMapping("/buscar")
+        public ResponseEntity<List<Autor>> buscarPorNome(@RequestParam String nome) {
+            return ResponseEntity.ok(autorService.buscarPorNome(nome));
+        }
 
     @GetMapping("/nacionalidade")
     public ResponseEntity<List<Autor>> buscarPorNacionalidade(@RequestParam String nacionalidade) {
