@@ -146,6 +146,3 @@ mvn test
 
 As migrations SQL estão em `src/main/resources/db/migration` e são executadas automaticamente pelo Flyway ao iniciar a aplicação.
 
-## Licença
-
-MIT. Veja o arquivo `LICENSE.txt` para mais detalhes.
